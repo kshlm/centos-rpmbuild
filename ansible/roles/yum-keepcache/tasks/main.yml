@@ -1,0 +1,4 @@
+---
+# tasks file for yum-keepcache
+- name: Enable yum keepcache
+  ini_file: dest=/etc/yum.conf section=main option=keepcache value=1 backup=yes

@@ -1,0 +1,3 @@
+mock-cache/
+yum-cache/
+.vagrant/

@@ -1,0 +1,25 @@
+---
+# tasks file for gluster-rpmbuilder
+- name: Install rpmbuild, yum-utils and mock
+  yum: name={{ item }} state=latest
+  with_items:
+    - rpm-build
+    - yum-utils
+    - mock
+    - rpmdevtools
+
+- name: Add 'vagrant' user to 'mock' group
+  user: name=vagrant state=present groups=mock append=yes
+
+- name: Builddep GlusterFS
+  command: yum-builddep -y glusterfs
+
+- name: Extra build reqs for GlusterFS
+  yum: name={{ item }} state=latest
+  with_items:
+    - libattr-devel
+    - glib2-devel
+    - userspace-rcu-devel
+    - cmockery2-devel
+
+

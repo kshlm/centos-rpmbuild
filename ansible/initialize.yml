@@ -1,0 +1,19 @@
+---
+# Setup CentOS hosts with GlusterFS. Generate and collect self-signed-certs.
+- hosts: all
+  remote_user: vagrant
+
+  vars:
+    rpms_location: rpms
+
+  roles:
+    - yum-keepcache
+    - magnus919.epel
+    - gluster-rpmbuilder
+
+  tasks:
+    - name: Install tmux
+      yum: "name=tmux state=installed"
+
+    - name: Install wget
+      yum: "name=wget state=installed"
