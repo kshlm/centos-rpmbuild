@@ -8,7 +8,7 @@
 
   roles:
     - yum-keepcache
-    - magnus919.epel
+    - epel
     - gluster-rpmbuilder
 
   tasks:

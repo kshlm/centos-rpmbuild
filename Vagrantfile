@@ -1,11 +1,4 @@
 Vagrant.configure("2") do |config|
-  #config.ssh.username = 'vagrant'
-  ##config.ssh.password = 'vagrant'
-
-  config.vm.synced_folder ".", "/vagrant",disabled:true
-
-  #config.ssh.private_key_path =["#{ENV['HOME']}/.ssh/id_rsa","#{ENV['HOME']}/.vagrant.d/insecure_private_key"]
-
   config.vm.define "crpmbuilder" do |centos|
     centos.vm.hostname = "crpmbuilder"
     centos.vm.provider "docker" do |d|
